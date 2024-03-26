@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav"
+    app:startDestination="@id/anaSayfaFragment">
+
+    <fragment
+        android:id="@+id/anaSayfaFragment"
+        android:name="com.free.bitirmeprojesi.AnaSayfaFragment"
+        android:label="fragment_ana_sayfa"
+        tools:layout="@layout/fragment_ana_sayfa">
+        <action
+            android:id="@+id/anaSayfaDetayGecis"
+            app:destination="@id/detayFragment" />
+        <action
+            android:id="@+id/anaSayfaSepetGecis"
+            app:destination="@id/sepetFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/sepetFragment"
+        android:name="com.free.bitirmeprojesi.SepetFragment"
+        android:label="fragment_sepet"
+        tools:layout="@layout/fragment_sepet" >
+        <action
+            android:id="@+id/sepetSiparisTamamlamaGecis"
+            app:destination="@id/siparisiTamamlaFragment" />
+        <action
+            android:id="@+id/sepetAnaSayfaGecis"
+            app:destination="@id/anaSayfaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detayFragment"
+        android:name="com.free.bitirmeprojesi.DetayFragment"
+        android:label="fragment_detay"
+        tools:layout="@layout/fragment_detay" >
+        <argument
+            android:name="urun"
+            app:argType="com.free.bitirmeprojesi.data.entity.Urunler" />
+        <action
+            android:id="@+id/detaySpetGecis"
+            app:destination="@id/sepetFragment" />
+        <action
+            android:id="@+id/detayAnaSayfaGecis"
+            app:destination="@id/anaSayfaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/siparisiTamamlaFragment"
+        android:name="com.free.bitirmeprojesi.SiparisiTamamlaFragment"
+        android:label="fragment_siparisi_tamamla"
+        tools:layout="@layout/fragment_siparisi_tamamla" >
+        <action
+            android:id="@+id/siparisTamamlamaAnaSayfaGecis"
+            app:destination="@id/anaSayfaFragment" />
+    </fragment>
+</navigation>
